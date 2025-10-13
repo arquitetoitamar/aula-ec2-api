@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload e Chat com Documentos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        .chat-box { border: 1px solid #ccc; padding: 1em; max-width: 600px; margin-top: 2em; }
+        .chat-log { min-height: 120px; margin-bottom: 1em; background: #f9f9f9; padding: 1em; border-radius: 5px; }
+        .user { color: #0074d9; }
+        .bot { color: #2ecc40; }
+        .upload-box { margin-bottom: 2em; }
+        .doc-list { margin: 1em 0; padding: 1em; background: #f4f4f4; border-radius: 5px; max-width: 600px; }
+    </style>
+</head>
+<body>
+    <h1>Upload de Arquivo e Chat</h1>
+    <div class="upload-box">
+        <form id="uploadForm">
+            <input type="file" id="fileInput" name="file" accept=".txt,.pdf" required />
+            <button type="submit">Enviar arquivo</button>
+        </form>
+        <div id="uploadStatus"></div>
+    </div>
+    <div class="doc-list" id="docList">
+        <b>Documentos carregados:</b>
+        <form id="docSelectForm">
+            <select id="docSelect" required style="margin-top:8px;">
+                <option value="">Selecione um documento</option>
+            </select>
+        </form>
+        <ul id="docListUl"></ul>
+    </div>
+    <div class="chat-box">
+        <div class="chat-log" id="chatLog"></div>
+        <form id="chatForm">
+            <input type="text" id="questionInput" placeholder="Digite sua pergunta..." required style="width:70%" />
+            <button type="submit">Perguntar</button>
+        </form>
+    </div>
+    <div class="chat-box">
+        <div class="chat-log" id="chatLogAll"></div>
+        <form id="chatFormAll">
+            <input type="text" id="questionInputAll" placeholder="Pergunte para toda a base..." required style="width:70%" />
+            <button type="submit">Perguntar para a base</button>
+        </form>
+    </div>
+    <script>
+    const API_URL = 'http://localhost:5000';
+    let docListCache = [];
+
+    // Carregar lista de documentos
+    async function loadDocuments() {
+        const ul = document.getElementById('docListUl');
+        const select = document.getElementById('docSelect');
+        ul.innerHTML = '<li>Carregando...</li>';
+        select.innerHTML = '<option value="">Selecione um documento</option>';
+        try {
+            const resp = await fetch(`${API_URL}/documents`);
+            const data = await resp.json();
+            docListCache = data.documents || [];
+            if (docListCache.length > 0) {
+                ul.innerHTML = docListCache.map(doc => `<li>${doc.filename} <small>(id: ${doc.id})</small></li>`).join('');
+                select.innerHTML += docListCache.map(doc => `<option value="${doc.id}">${doc.filename}</option>`).join('');
+            } else {
+                ul.innerHTML = '<li>Nenhum documento encontrado.</li>';
+            }
+        } catch (err) {
+            ul.innerHTML = '<li>Erro ao carregar documentos.</li>';
+        }
+    }
+    loadDocuments();
+
+    // Upload de arquivo
+    document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const fileInput = document.getElementById('fileInput');
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+        document.getElementById('uploadStatus').innerText = 'Enviando...';
+        try {
+            const resp = await fetch(`${API_URL}/upload`, {
+                method: 'POST',
+                body: formData
+            });
+            const data = await resp.json();
+            document.getElementById('uploadStatus').innerText = data.message || data.error;
+            await loadDocuments();
+        } catch (err) {
+            document.getElementById('uploadStatus').innerText = 'Erro ao enviar arquivo.';
+        }
+    });
+
+    // Chat documento selecionado
+    const chatLog = document.getElementById('chatLog');
+    document.getElementById('chatForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const input = document.getElementById('questionInput');
+        const question = input.value;
+        const docId = document.getElementById('docSelect').value;
+        if (!docId) {
+            alert('Selecione um documento para perguntar!');
+            return;
+        }
+        chatLog.innerHTML += `<div><span class='user'><b>Você:</b></span> ${question}</div>`;
+        input.value = '';
+        try {
+            const resp = await fetch(`${API_URL}/ask`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question, doc_id: docId })
+            });
+            const data = await resp.json();
+            if (data.matches && data.matches.length > 0) {
+                chatLog.innerHTML += `<div><span class='bot'><b>Docs:</b></span> ${data.matches.map(m => `<div><b>${m.filename}</b>: ${m.content.substring(0,5000)}...</div>`).join('')}</div>`;
+            } else {
+                chatLog.innerHTML += `<div><span class='bot'><b>Docs:</b></span> Nenhuma resposta encontrada.</div>`;
+            }
+        } catch (err) {
+            chatLog.innerHTML += `<div><span class='bot'><b>Erro:</b></span> Não foi possível buscar resposta.</div>`;
+        }
+        chatLog.scrollTop = chatLog.scrollHeight;
+    });
+    // Chat para toda a base
+    const chatLogAll = document.getElementById('chatLogAll');
+    document.getElementById('chatFormAll').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const input = document.getElementById('questionInputAll');
+        const question = input.value;
+        chatLogAll.innerHTML += `<div><span class='user'><b>Você:</b></span> ${question}</div>`;
+        input.value = '';
+        try {
+            const resp = await fetch(`${API_URL}/ask_all`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question })
+            });
+            const data = await resp.json();
+            if (data.matches && data.matches.length > 0) {
+                chatLogAll.innerHTML += `<div><span class='bot'><b>Docs:</b></span> ${data.matches.map(m => `<div><b>${m.filename}</b>: ${m.content.substring(0,5000)}...</div>`).join('')}</div>`;
+            } else {
+                chatLogAll.innerHTML += `<div><span class='bot'><b>Docs:</b></span> Nenhuma resposta encontrada.</div>`;
+            }
+        } catch (err) {
+            chatLogAll.innerHTML += `<div><span class='bot'><b>Erro:</b></span> Não foi possível buscar resposta.</div>`;
+        }
+        chatLogAll.scrollTop = chatLogAll.scrollHeight;
+    });
+    </script>
+</body>
+</html>
