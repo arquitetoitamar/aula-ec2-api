@@ -4,7 +4,7 @@ actor User
 rectangle "CloudFront + APIGW" as EDGE
 rectangle "Lambda (Orquestração)" as LBD
 rectangle "Amazon Bedrock\n(Agents, KB, Guardrails)" as BR
-rectangle "Knowledge Base\n(S3 + índice gerenciado)" as KB
+rectangle "Knowledge Base\n(Object Storage + índice gerenciado)" as KB
 rectangle "Ferramentas do Agente\n(SQL, HTTP, Code Runner)" as TOOLS
 rectangle "Observabilidade\n(CloudWatch/X-Ray)" as OBS
 

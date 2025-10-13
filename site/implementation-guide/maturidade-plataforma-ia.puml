@@ -5,7 +5,7 @@ skinparam dpi 150
 
 RECTANGLE "Nível 1: Hardware e Infraestrutura" as N1 {
   EC2 : Instâncias EC2
-  S3 : Armazenamento S3
+  Storage : Armazenamento de Objetos
   RDS : Banco RDS (Postgres/pgvector)
   GPU : GPUs
 }
@@ -27,7 +27,7 @@ N2 --> N3 : Maturidade
 
 note right of N1
   Nível 1: Base de infraestrutura
-  (EC2, S3, RDS, GPUs)
+  (EC2, Storage, RDS, GPUs)
 end note
 
 note right of N2

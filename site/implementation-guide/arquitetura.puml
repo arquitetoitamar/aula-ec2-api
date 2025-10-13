@@ -1,10 +1,10 @@
 @startuml
 skinparam dpi 150
-User -right-> S3 : acessa
-S3 -right-> EC2 : requisições HTTP
+User -right-> Storage : acessa
+Storage -right-> EC2 : requisições HTTP
 EC2 -down-> RDS : conecta
 User : Usuário
-S3 : Site Estático (S3)
+Storage : Site Estático (Object Storage / CDN)
 EC2 : API Flask (EC2)
 RDS : PostgreSQL RDS
 @enduml

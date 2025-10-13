@@ -8,6 +8,9 @@ Neste estágio, a empresa utiliza recursos básicos de nuvem para construir sua 
 - Instâncias EC2 (com ou sem GPU)
 - Armazenamento S3
 - Banco de dados RDS (Postgres/pgvector)
+ - Instâncias EC2 (com ou sem GPU)
+ - Armazenamento de objetos (Object Storage)
+ - Banco de dados RDS (Postgres/pgvector)
 
 **Vantagens:**
 - Total controle sobre a infraestrutura
