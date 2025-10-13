@@ -10,7 +10,7 @@ Bem-vindo ao guia de implementação da sua API! Aqui você encontrará informa�
 
 Este repositório contém um exemplo mínimo de API em Flask localizado em `back/api.py` e material de apoio para aprender a implantar aplicações Python na nuvem.
 
-## Sprint: Change – FlexMedia
+## Sprint 1
 
 Tema: Criando sua primeira API Python na nuvem com AWS EC2
 
