@@ -1,0 +1,19 @@
+@startuml
+skinparam dpi 150
+actor User
+rectangle "Frontend (Object Storage + CDN)" as FE
+rectangle "API (ECS Fargate/Lambda)" as API
+rectangle "Aurora Serverless v2\nPostgres + pgvector" as DB
+rectangle "Data Lake (Object Storage)" as DL
+rectangle "ETL (Glue/Athena)" as ETL
+rectangle "Embeddings Job\n(Step Functions)" as EMB
+rectangle "SageMaker\n(Train/Eval/Endpoint)" as SM
+
+User --> FE
+FE --> API
+API --> DB : consulta vetorial\n& metadados
+API --> SM : inferência modelo
+DL <- ETL
+ETL --> EMB : dados limpos
+EMB --> DB : grava vetores
+@enduml
