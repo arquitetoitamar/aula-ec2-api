@@ -11,15 +11,8 @@ theme:
 nav:
   - Guia de implementação:
     - Overview: index.md
-    - Architecture: implementation-guide/architecture.md
-    - Considerations: implementation-guide/considerations.md
-    - Cost: implementation-guide/cost.md
-    - Deployment: implementation-guide/deployment.md
-    - Revisions: implementation-guide/revisions.md
     - Tutorials:
       - "Criando sua primeira API (EC2 + Flask)": implementation-guide/tutorials/criar-ec2.md
-      - "Tutorials (EN)":
-        - "Create EC2 Ubuntu": en/implementation-guide/tutorials/criar-ec2.md
   - "Plataformas e Níveis de Maturidade":
       - "Visão Geral": platforms-services/README.md
       - "Nivel 1 - Hardware e Infraestrutura": platforms-services/nivel_1.md
