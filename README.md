@@ -1,6 +1,6 @@
 # Documentação
 
-https://arquitetoitamar.github.io/aula-2-api/
+https://arquitetoitamar.github.io/aula-ec2-api/
 
 # Guia de Implementação da API
 
