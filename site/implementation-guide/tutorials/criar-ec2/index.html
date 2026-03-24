@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="pt" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -9,22 +9,25 @@
       
       
       
-        <link rel="prev" href="../../..">
+        <link rel="prev" href="../../architecture/">
       
       
-        <link rel="next" href="../../../platforms-services/">
+        <link rel="next" href="../criar-rds/">
+      
+      
+        
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Criando sua primeira API (EC2 + Flask) - Plataforma Cognitiva</title>
+        <title>Aula 1 — Criar a instância EC2 - API FlexMedia — Guia de Implementação</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -49,7 +52,6 @@
 
     
     
-    
   </head>
   
   
@@ -62,8 +64,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#sprint-change-flexmedia-criando-sua-primeira-api-python-na-nuvem-com-aws-ec2" class="md-skip">
-          Skip to content
+        <a href="#aula-1-criar-a-instancia-ec2-na-aws" class="md-skip">
+          Pular para conteúdo
         </a>
       
     </div>
@@ -77,8 +79,8 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Plataforma Cognitiva" class="md-header__button md-logo" aria-label="Plataforma Cognitiva" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="API FlexMedia — Guia de Implementação" class="md-header__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -92,13 +94,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Plataforma Cognitiva
+            API FlexMedia — Guia de Implementação
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Criando sua primeira API (EC2 + Flask)
+              Aula 1 — Criar a instância EC2
             
           </span>
         </div>
@@ -120,16 +122,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Pesquisar">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -140,7 +142,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Inicializando busca
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -174,18 +176,45 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Plataforma Cognitiva" class="md-nav__button md-logo" aria-label="Plataforma Cognitiva" data-md-component="logo">
+    <a href="../../.." title="API FlexMedia — Guia de Implementação" class="md-nav__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Plataforma Cognitiva
+    API FlexMedia — Guia de Implementação
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
     
       
       
@@ -204,26 +233,35 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
-    Guia de implementação
+    
+  
+    Guia de Implementação
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Guia de implementação
+            
+  
+    Guia de Implementação
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -234,14 +272,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Overview
+    
+  
+    Arquitetura
+  
+
     
   </span>
+  
   
 
       </a>
@@ -267,26 +310,35 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
-    Tutorials
+    
+  
+    Conteúdo Programático
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
-            Tutorials
+            
+  
+    Conteúdo Programático
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -311,9 +363,14 @@
   
   
   <span class="md-ellipsis">
-    Criando sua primeira API (EC2 + Flask)
+    
+  
+    Aula 1 — Criar a instância EC2
+  
+
     
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -324,16 +381,21 @@
   
   
   <span class="md-ellipsis">
-    Criando sua primeira API (EC2 + Flask)
+    
+  
+    Aula 1 — Criar a instância EC2
+  
+
     
   </span>
+  
   
 
       </a>
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
   
@@ -342,41 +404,110 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Índice
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-que-voce-vai-aprender" class="md-nav__link">
+  <a href="#o-que-e-o-ec2" class="md-nav__link">
     <span class="md-ellipsis">
-      O que você vai aprender
+      
+        O que é o EC2?
+      
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-requisitos" class="md-nav__link">
+  <a href="#passo-a-passo" class="md-nav__link">
     <span class="md-ellipsis">
-      Pré-requisitos
+      
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-acessar-o-console-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Acessar o Console AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criar-a-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Criar a Instância
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configurar-o-security-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configurar o Security Group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-lancar-a-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Lançar a Instância
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-conectar-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conectar via SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação
+      
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#passos-da-atividade" class="md-nav__link">
+  <a href="#proximo-passo" class="md-nav__link">
     <span class="md-ellipsis">
-      Passos da Atividade
-    </span>
-  </a>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#dicas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dicas
+        Próximo Passo
+      
     </span>
   </a>
   
@@ -391,9 +522,205 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criar-rds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aula 2 — Criar o banco RDS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configurar-ambiente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aula 3 — Configurar ambiente e subir a API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrar-api-banco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aula 4 — Integrar API com banco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../considerations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Considerações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../revisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revisões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -423,26 +750,35 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
+    
+  
     Plataformas e Níveis de Maturidade
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Plataformas e Níveis de Maturidade
+            
+  
+    Plataformas e Níveis de Maturidade
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -458,9 +794,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Visão Geral
+  
+
     
   </span>
+  
   
 
       </a>
@@ -481,9 +822,14 @@
   
   
   <span class="md-ellipsis">
-    Nivel 1 - Hardware e Infraestrutura
+    
+  
+    Nível 1 — Hardware e Infraestrutura
+  
+
     
   </span>
+  
   
 
       </a>
@@ -504,9 +850,14 @@
   
   
   <span class="md-ellipsis">
-    Nivel 2 - Modelos e Serviços de ML
+    
+  
+    Nível 2 — Modelos e Serviços de ML
+  
+
     
   </span>
+  
   
 
       </a>
@@ -527,9 +878,14 @@
   
   
   <span class="md-ellipsis">
-    Nivel 3 - Aplicacoes e Serviços de IA
+    
+  
+    Nível 3 — Aplicações e Serviços de IA
+  
+
     
   </span>
+  
   
 
       </a>
@@ -558,7 +914,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
   
@@ -567,41 +923,110 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Índice
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-que-voce-vai-aprender" class="md-nav__link">
+  <a href="#o-que-e-o-ec2" class="md-nav__link">
     <span class="md-ellipsis">
-      O que você vai aprender
+      
+        O que é o EC2?
+      
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-requisitos" class="md-nav__link">
+  <a href="#passo-a-passo" class="md-nav__link">
     <span class="md-ellipsis">
-      Pré-requisitos
+      
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-acessar-o-console-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Acessar o Console AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criar-a-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Criar a Instância
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configurar-o-security-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configurar o Security Group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-lancar-a-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Lançar a Instância
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-conectar-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conectar via SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação
+      
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#passos-da-atividade" class="md-nav__link">
+  <a href="#proximo-passo" class="md-nav__link">
     <span class="md-ellipsis">
-      Passos da Atividade
-    </span>
-  </a>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#dicas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dicas
+        Próximo Passo
+      
     </span>
   </a>
   
@@ -617,146 +1042,87 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
 
-<h1 id="sprint-change-flexmedia-criando-sua-primeira-api-python-na-nuvem-com-aws-ec2">Sprint: Change – FlexMedia — Criando sua primeira API Python na nuvem com AWS EC2</h1>
-<p>🎯 Objetivo da Sprint</p>
-<p>Nesta sprint, você vai criar uma instância EC2 na AWS e subir uma aplicação simples em Python usando o Flask. A ideia é entender como colocar um programa no ar em um servidor na nuvem.</p>
-<h2 id="o-que-voce-vai-aprender">O que você vai aprender</h2>
+<h1 id="aula-1-criar-a-instancia-ec2-na-aws">Aula 1 — Criar a Instância EC2 na AWS</h1>
+<p>🎯 <strong>Objetivo:</strong> Criar uma máquina virtual (EC2) na AWS com Ubuntu, elegível ao Free Tier.</p>
+<h2 id="o-que-e-o-ec2">O que é o EC2?</h2>
+<p>O Amazon EC2 (Elastic Compute Cloud) é um serviço que permite criar máquinas virtuais na nuvem. Pense nele como um computador remoto que você acessa pela internet.</p>
+<h2 id="passo-a-passo">Passo a Passo</h2>
+<h3 id="1-acessar-o-console-aws">1. Acessar o Console AWS</h3>
 <ul>
-<li>O que é uma instância EC2 (máquina virtual na AWS).</li>
-<li>Como acessar sua EC2 via SSH.</li>
-<li>Como instalar Python e Flask.</li>
-<li>Como rodar uma API e acessar pelo navegador ou terminal.</li>
-<li>Como publicar seu serviço e testar o acesso via internet.</li>
+<li>Acesse <a href="https://aws.amazon.com/">https://aws.amazon.com/</a> e faça login na sua conta.</li>
+<li>No campo de busca, digite <strong>EC2</strong> e clique no serviço.</li>
 </ul>
-<h2 id="pre-requisitos">Pré-requisitos</h2>
+<h3 id="2-criar-a-instancia">2. Criar a Instância</h3>
 <ul>
-<li>Conta ativa na AWS com permissões para criar instâncias EC2 e Security Groups.</li>
-<li>Chave de acesso SSH (será criada no processo de Launch Instance).</li>
-</ul>
-<h2 id="passos-da-atividade">Passos da Atividade</h2>
-<ol>
-<li>
-<p>Criar a instância EC2</p>
-</li>
-<li>
-<p>Acesse o Console AWS (https://aws.amazon.com/) e faça login.</p>
-</li>
-<li>Vá para EC2 → Instances → Launch instances.</li>
-<li>Escolha uma AMI: Ubuntu Server 22.04 LTS (ou Amazon Linux 2).</li>
-<li>Instance type: selecione t2.micro ou t3.micro (Free Tier).</li>
-<li>Key pair: crie um novo par de chaves e baixe o arquivo <code>.pem</code>.</li>
-<li>
-<p>Security Group: adicione regras de entrada para as portas:</p>
-<ul>
-<li>22 — SSH — Fonte: seu IP (recomendado) ou 0.0.0.0/0 para testes (menos seguro)</li>
-<li>5000 — TCP — Fonte: 0.0.0.0/0 (para acessar a API Flask)</li>
+<li>Clique em <strong>Launch instances</strong>.</li>
+<li>Preencha:<ul>
+<li><strong>Name:</strong> <code>flexmedia-api</code></li>
+<li><strong>AMI:</strong> Ubuntu Server 22.04 LTS (Free Tier eligible)</li>
+<li><strong>Instance type:</strong> <code>t2.micro</code> ou <code>t3.micro</code> (Free Tier)</li>
+<li><strong>Key pair:</strong> clique em <em>Create new key pair</em>, dê um nome (ex: <code>minha-chave</code>), mantenha o formato <code>.pem</code> e faça o download. <strong>Guarde este arquivo com segurança — você não poderá baixá-lo novamente.</strong></li>
 </ul>
 </li>
-<li>
-<p>Acessar sua EC2</p>
-</li>
-<li>
-<p>No Windows: use Git Bash, PowerShell (com OpenSSH) ou WSL para rodar ssh.</p>
-</li>
-<li>Conectar (exemplo para Ubuntu):</li>
-</ol>
-<pre><code class="language-bash">ssh -i /caminho/para/sua-chave.pem ubuntu@SEU_IP_PUBLICO
+</ul>
+<h3 id="3-configurar-o-security-group">3. Configurar o Security Group</h3>
+<p>Na seção <strong>Network settings</strong>, clique em <strong>Edit</strong> e adicione as seguintes regras de entrada (Inbound rules):</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Porta</th>
+<th>Origem</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH</td>
+<td>22</td>
+<td>Meu IP</td>
+<td>Acesso remoto ao servidor</td>
+</tr>
+<tr>
+<td>Custom TCP</td>
+<td>5000</td>
+<td>0.0.0.0/0</td>
+<td>Acesso à API Flask</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ Em produção, nunca deixe portas abertas para <code>0.0.0.0/0</code>. Para fins de aprendizado, é aceitável.</p>
+</blockquote>
+<h3 id="4-lancar-a-instancia">4. Lançar a Instância</h3>
+<ul>
+<li>Clique em <strong>Launch instance</strong>.</li>
+<li>Aguarde o status mudar para <strong>Running</strong>.</li>
+<li>Anote o <strong>IP Público</strong> da instância (você vai precisar dele).</li>
+</ul>
+<h3 id="5-conectar-via-ssh">5. Conectar via SSH</h3>
+<p>No terminal do seu computador:</p>
+<pre><code class="language-bash"># Ajustar permissão da chave (necessário apenas na primeira vez)
+chmod 400 /caminho/para/minha-chave.pem
+
+# Conectar
+ssh -i /caminho/para/minha-chave.pem ubuntu@SEU_IP_PUBLICO
 </code></pre>
-<ol>
-<li>Preparar o ambiente e instalar Python/Flask</li>
-</ol>
-<pre><code class="language-bash"># Atualizar o sistema
-sudo apt update &amp;&amp; sudo apt upgrade -y
-
-# Instalar Python e venv
-sudo apt install -y python3 python3-venv python3-pip
-
-# Criar e ativar ambiente virtual
-python3 -m venv venv
-source venv/bin/activate
-
-# Instalar Flask
-pip install Flask==3.0.0
-</code></pre>
-<ol>
-<li>Criar a aplicação em Python</li>
-</ol>
-<p>No diretório do projeto, crie um arquivo <code>app.py</code> (ou copie <code>back/api.py</code> do repositório). Exemplo mínimo:</p>
-<pre><code class="language-python">from flask import Flask, jsonify
-
-app = Flask(__name__)
-
-@app.route(&quot;/&quot;)
-def home():
-        return jsonify(message=&quot;Bem-vindo à API FlexMedia!&quot;)
-
-@app.route(&quot;/health&quot;)
-def health():
-        return jsonify(status=&quot;ok&quot;, service=&quot;flexmedia&quot;, version=&quot;1.0.0&quot;)
-
-@app.route(&quot;/echo/&lt;texto&gt;&quot;)
-def echo(texto):
-        return jsonify(echo=texto)
-
-if __name__ == &quot;__main__&quot;:
-        app.run(host=&quot;0.0.0.0&quot;, port=5000)
-</code></pre>
-<ol>
-<li>Executar a aplicação</li>
-</ol>
-<pre><code class="language-bash"># Ative o virtualenv (se não estiver ativo)
-source venv/bin/activate
-
-# Rode a aplicação
-python app.py
-</code></pre>
-<p>Agora a API estará disponível na porta 5000. No seu navegador ou terminal acesse:</p>
-<p>http://SEU_IP_PUBLICO:5000/health</p>
-<p>Você deve ver um JSON com status "ok".</p>
-<ol>
-<li>
-<p>Testar e validar</p>
-</li>
-<li>
-<p>Teste pelo navegador: acesse a rota <code>/health</code>.</p>
-</li>
-<li>Teste pelo terminal:</li>
-</ol>
-<pre><code class="language-bash">curl http://SEU_IP_PUBLICO:5000/health
-curl http://SEU_IP_PUBLICO:5000/echo/teste
-</code></pre>
+<p>No Windows, use Git Bash, PowerShell (com OpenSSH) ou WSL.</p>
+<p>Se a conexão funcionar, você verá o prompt do Ubuntu. Parabéns, sua EC2 está no ar! 🎉</p>
+<h2 id="validacao">Validação</h2>
 <ul>
-<li>
-<p>Tire prints mostrando:</p>
-<ul>
-<li>A instância EC2 em execução.</li>
-<li>As regras do Security Group (portas 22 e 5000 abertas).</li>
-<li>A API funcionando no navegador ou terminal.</li>
+<li>[ ] Instância EC2 com status <strong>Running</strong>.</li>
+<li>[ ] Security Group com portas 22 e 5000 abertas.</li>
+<li>[ ] Conexão SSH funcionando.</li>
 </ul>
-</li>
-<li>
-<p>Entrega</p>
-</li>
-</ul>
-<p>Envie um pequeno relatório com:</p>
-<ul>
-<li>IP público da sua EC2.</li>
-<li>As três imagens (prints) requisitadas.</li>
-<li>Uma breve descrição do que foi feito em cada passo.</li>
-</ul>
-<h2 id="dicas">Dicas</h2>
-<ul>
-<li>Em produção, coloque a aplicação atrás de um servidor WSGI (Gunicorn) e um proxy reverso (Nginx). Para a atividade escolar, o servidor de desenvolvimento do Flask é suficiente.</li>
-<li>Lembre-se de proteger a chave <code>.pem</code> e restringir o Security Group para seu IP quando possível.</li>
-</ul>
-<hr />
-<p>Arquivo de referência local: <code>back/api.py</code> (exemplo mínimo incluído no repositório).</p>
+<h2 id="proximo-passo">Próximo Passo</h2>
+<p>→ <a href="../criar-rds/">Aula 2 — Criar o banco de dados RDS</a></p>
 
 
 
@@ -805,10 +1171,11 @@ curl http://SEU_IP_PUBLICO:5000/echo/teste
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../cost/">
+        <link rel="prev" href="../configurar-ambiente/">
       
       
-        <link rel="next" href="../considerations/">
+        <link rel="next" href="../../cost/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Deploy - API FlexMedia — Guia de Implementação</title>
+        <title>Aula 4 — Integrar API com banco - API FlexMedia — Guia de Implementação</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deploy" class="md-skip">
+        <a href="#aula-4-integrar-a-api-com-o-banco-de-dados" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="API FlexMedia — Guia de Implementação" class="md-header__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
+    <a href="../../.." title="API FlexMedia — Guia de Implementação" class="md-header__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deploy
+              Aula 4 — Integrar API com banco
             
           </span>
         </div>
@@ -178,7 +178,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="API FlexMedia — Guia de Implementação" class="md-nav__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
+    <a href="../../.." title="API FlexMedia — Guia de Implementação" class="md-nav__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -196,7 +196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -272,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   
@@ -297,20 +297,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -331,7 +331,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -349,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/criar-ec2/" class="md-nav__link">
+      <a href="../criar-ec2/" class="md-nav__link">
         
   
   
@@ -377,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/criar-rds/" class="md-nav__link">
+      <a href="../criar-rds/" class="md-nav__link">
         
   
   
@@ -405,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/configurar-ambiente/" class="md-nav__link">
+      <a href="../configurar-ambiente/" class="md-nav__link">
         
   
   
@@ -413,70 +413,6 @@
     
   
     Aula 3 — Configurar ambiente e subir a API
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tutorials/integrar-api-banco/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Aula 4 — Integrar API com banco
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cost/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Custos
   
 
     
@@ -513,7 +449,7 @@
   <span class="md-ellipsis">
     
   
-    Deploy
+    Aula 4 — Integrar API com banco
   
 
     
@@ -531,7 +467,7 @@
   <span class="md-ellipsis">
     
   
-    Deploy
+    Aula 4 — Integrar API com banco
   
 
     
@@ -557,10 +493,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ambiente-de-aprendizado" class="md-nav__link">
+  <a href="#passo-a-passo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ambiente de Aprendizado
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-conectar-na-ec2-e-ativar-o-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Conectar na EC2 e ativar o ambiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-instalar-a-biblioteca-de-conexao-com-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Instalar a biblioteca de conexão com PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-atualizar-a-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Atualizar a API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configurar-as-variaveis-de-ambiente-e-rodar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configurar as variáveis de ambiente e rodar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-testar-as-rotas-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Testar as rotas CRUD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação
       
     </span>
   </a>
@@ -568,10 +576,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dicas-para-producao" class="md-nav__link">
+  <a href="#parabens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dicas para Produção
+        Parabéns! 🎉
       
     </span>
   </a>
@@ -587,6 +595,14 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
               
                 
   
@@ -594,7 +610,63 @@
   
   
     <li class="md-nav__item">
-      <a href="../considerations/" class="md-nav__link">
+      <a href="../../cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../considerations/" class="md-nav__link">
         
   
   
@@ -622,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../revisions/" class="md-nav__link">
+      <a href="../../revisions/" class="md-nav__link">
         
   
   
@@ -706,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms-services/" class="md-nav__link">
+      <a href="../../../platforms-services/" class="md-nav__link">
         
   
   
@@ -734,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms-services/nivel_1/" class="md-nav__link">
+      <a href="../../../platforms-services/nivel_1/" class="md-nav__link">
         
   
   
@@ -762,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms-services/nivel_2/" class="md-nav__link">
+      <a href="../../../platforms-services/nivel_2/" class="md-nav__link">
         
   
   
@@ -790,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms-services/nivel_3/" class="md-nav__link">
+      <a href="../../../platforms-services/nivel_3/" class="md-nav__link">
         
   
   
@@ -845,10 +917,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ambiente-de-aprendizado" class="md-nav__link">
+  <a href="#passo-a-passo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ambiente de Aprendizado
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-conectar-na-ec2-e-ativar-o-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Conectar na EC2 e ativar o ambiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-instalar-a-biblioteca-de-conexao-com-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Instalar a biblioteca de conexão com PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-atualizar-a-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Atualizar a API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configurar-as-variaveis-de-ambiente-e-rodar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configurar as variáveis de ambiente e rodar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-testar-as-rotas-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Testar as rotas CRUD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação
       
     </span>
   </a>
@@ -856,10 +1000,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dicas-para-producao" class="md-nav__link">
+  <a href="#parabens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dicas para Produção
+        Parabéns! 🎉
       
     </span>
   </a>
@@ -883,21 +1027,170 @@
 
 
 
-<h1 id="deploy">Deploy</h1>
-<h2 id="ambiente-de-aprendizado">Ambiente de Aprendizado</h2>
-<p>Para fins didáticos, a API roda diretamente com o servidor de desenvolvimento do Flask:</p>
+<h1 id="aula-4-integrar-a-api-com-o-banco-de-dados">Aula 4 — Integrar a API com o Banco de Dados</h1>
+<p>🎯 <strong>Objetivo:</strong> Conectar a API Flask ao PostgreSQL no RDS e criar rotas CRUD.</p>
+<h2 id="passo-a-passo">Passo a Passo</h2>
+<h3 id="1-conectar-na-ec2-e-ativar-o-ambiente">1. Conectar na EC2 e ativar o ambiente</h3>
+<pre><code class="language-bash">ssh -i /caminho/para/minha-chave.pem ubuntu@SEU_IP_PUBLICO
+cd ~/app
+source venv/bin/activate
+</code></pre>
+<h3 id="2-instalar-a-biblioteca-de-conexao-com-postgresql">2. Instalar a biblioteca de conexão com PostgreSQL</h3>
+<pre><code class="language-bash">sudo apt install -y libpq-dev
+pip install psycopg2-binary
+</code></pre>
+<h3 id="3-atualizar-a-api">3. Atualizar a API</h3>
+<p>Edite o arquivo <code>app.py</code> (ou crie um novo):</p>
+<pre><code class="language-bash">nano app.py
+</code></pre>
+<p>Substitua o conteúdo por:</p>
+<pre><code class="language-python">import os
+import psycopg2
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+def get_db():
+    return psycopg2.connect(
+        host=os.environ.get(&quot;DB_HOST&quot;, &quot;localhost&quot;),
+        port=os.environ.get(&quot;DB_PORT&quot;, &quot;5432&quot;),
+        dbname=os.environ.get(&quot;DB_NAME&quot;, &quot;postgres&quot;),
+        user=os.environ.get(&quot;DB_USER&quot;, &quot;postgres&quot;),
+        password=os.environ.get(&quot;DB_PASSWORD&quot;, &quot;&quot;),
+    )
+
+def init_db():
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(&quot;&quot;&quot;
+        CREATE TABLE IF NOT EXISTS items (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            description TEXT
+        )
+    &quot;&quot;&quot;)
+    conn.commit()
+    cur.close()
+    conn.close()
+
+@app.route(&quot;/&quot;)
+def home():
+    return jsonify(message=&quot;Bem-vindo à API FlexMedia!&quot;)
+
+@app.route(&quot;/health&quot;)
+def health():
+    return jsonify(status=&quot;ok&quot;, service=&quot;flexmedia&quot;, version=&quot;1.0.0&quot;)
+
+@app.route(&quot;/items&quot;, methods=[&quot;GET&quot;])
+def list_items():
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(&quot;SELECT id, name, description FROM items&quot;)
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+    return jsonify([{&quot;id&quot;: r[0], &quot;name&quot;: r[1], &quot;description&quot;: r[2]} for r in rows])
+
+@app.route(&quot;/items&quot;, methods=[&quot;POST&quot;])
+def create_item():
+    data = request.get_json()
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(
+        &quot;INSERT INTO items (name, description) VALUES (%s, %s) RETURNING id&quot;,
+        (data[&quot;name&quot;], data.get(&quot;description&quot;, &quot;&quot;)),
+    )
+    item_id = cur.fetchone()[0]
+    conn.commit()
+    cur.close()
+    conn.close()
+    return jsonify(id=item_id, name=data[&quot;name&quot;], description=data.get(&quot;description&quot;, &quot;&quot;)), 201
+
+@app.route(&quot;/items/&lt;int:item_id&gt;&quot;, methods=[&quot;GET&quot;])
+def get_item(item_id):
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(&quot;SELECT id, name, description FROM items WHERE id = %s&quot;, (item_id,))
+    row = cur.fetchone()
+    cur.close()
+    conn.close()
+    if not row:
+        return jsonify(error=&quot;Item não encontrado&quot;), 404
+    return jsonify(id=row[0], name=row[1], description=row[2])
+
+@app.route(&quot;/items/&lt;int:item_id&gt;&quot;, methods=[&quot;PUT&quot;])
+def update_item(item_id):
+    data = request.get_json()
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(
+        &quot;UPDATE items SET name = %s, description = %s WHERE id = %s&quot;,
+        (data[&quot;name&quot;], data.get(&quot;description&quot;, &quot;&quot;), item_id),
+    )
+    conn.commit()
+    updated = cur.rowcount
+    cur.close()
+    conn.close()
+    if not updated:
+        return jsonify(error=&quot;Item não encontrado&quot;), 404
+    return jsonify(id=item_id, name=data[&quot;name&quot;], description=data.get(&quot;description&quot;, &quot;&quot;))
+
+@app.route(&quot;/items/&lt;int:item_id&gt;&quot;, methods=[&quot;DELETE&quot;])
+def delete_item(item_id):
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(&quot;DELETE FROM items WHERE id = %s&quot;, (item_id,))
+    conn.commit()
+    deleted = cur.rowcount
+    cur.close()
+    conn.close()
+    if not deleted:
+        return jsonify(error=&quot;Item não encontrado&quot;), 404
+    return jsonify(message=&quot;Item removido&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    init_db()
+    app.run(host=&quot;0.0.0.0&quot;, port=5000)
+</code></pre>
+<h3 id="4-configurar-as-variaveis-de-ambiente-e-rodar">4. Configurar as variáveis de ambiente e rodar</h3>
 <pre><code class="language-bash">export DB_HOST=&quot;SEU_ENDPOINT_RDS&quot;
+export DB_PORT=&quot;5432&quot;
+export DB_NAME=&quot;postgres&quot;
+export DB_USER=&quot;postgres&quot;
 export DB_PASSWORD=&quot;SUA_SENHA&quot;
+
 python app.py
 </code></pre>
-<h2 id="dicas-para-producao">Dicas para Produção</h2>
-<p>Para um ambiente mais robusto, considere:</p>
+<h3 id="5-testar-as-rotas-crud">5. Testar as rotas CRUD</h3>
+<p>No seu computador local:</p>
+<pre><code class="language-bash"># Criar um item
+curl -X POST http://SEU_IP_PUBLICO:5000/items \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;name&quot;: &quot;Notebook&quot;, &quot;description&quot;: &quot;Notebook Dell 16GB&quot;}'
+
+# Listar todos os itens
+curl http://SEU_IP_PUBLICO:5000/items
+
+# Buscar um item por ID
+curl http://SEU_IP_PUBLICO:5000/items/1
+
+# Atualizar um item
+curl -X PUT http://SEU_IP_PUBLICO:5000/items/1 \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;name&quot;: &quot;Notebook&quot;, &quot;description&quot;: &quot;Notebook Dell 32GB&quot;}'
+
+# Deletar um item
+curl -X DELETE http://SEU_IP_PUBLICO:5000/items/1
+</code></pre>
+<h2 id="validacao">Validação</h2>
 <ul>
-<li><strong>Gunicorn</strong> — servidor WSGI para rodar a aplicação Flask com múltiplos workers.</li>
-<li><strong>Nginx</strong> — proxy reverso na frente do Gunicorn para gerenciar conexões.</li>
-<li><strong>systemd</strong> — manter a aplicação rodando como serviço do sistema operacional.</li>
-<li><strong>Variáveis de ambiente</strong> — nunca coloque senhas diretamente no código; use variáveis de ambiente ou um gerenciador de segredos (ex: AWS Secrets Manager).</li>
+<li>[ ] API conectando no PostgreSQL do RDS.</li>
+<li>[ ] Rota <code>POST /items</code> criando registros no banco.</li>
+<li>[ ] Rota <code>GET /items</code> listando registros do banco.</li>
+<li>[ ] Rotas <code>PUT</code> e <code>DELETE</code> funcionando corretamente.</li>
 </ul>
+<h2 id="parabens">Parabéns! 🎉</h2>
+<p>Você completou todas as aulas e tem uma aplicação completa rodando na nuvem: API Flask no EC2 conectada a um banco PostgreSQL no RDS.</p>
 
 
 
@@ -947,10 +1240,10 @@ python app.py
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -1,130 +1,66 @@
-# Sprint: Change – FlexMedia — Criando sua primeira API Python na nuvem com AWS EC2
+# Aula 1 — Criar a Instância EC2 na AWS
 
-🎯 Objetivo da Sprint
+🎯 **Objetivo:** Criar uma máquina virtual (EC2) na AWS com Ubuntu, elegível ao Free Tier.
 
-Nesta sprint, você vai criar uma instância EC2 na AWS e subir uma aplicação simples em Python usando o Flask. A ideia é entender como colocar um programa no ar em um servidor na nuvem.
+## O que é o EC2?
 
-## O que você vai aprender
+O Amazon EC2 (Elastic Compute Cloud) é um serviço que permite criar máquinas virtuais na nuvem. Pense nele como um computador remoto que você acessa pela internet.
 
-- O que é uma instância EC2 (máquina virtual na AWS).
-- Como acessar sua EC2 via SSH.
-- Como instalar Python e Flask.
-- Como rodar uma API e acessar pelo navegador ou terminal.
-- Como publicar seu serviço e testar o acesso via internet.
+## Passo a Passo
 
-## Pré-requisitos
+### 1. Acessar o Console AWS
 
-- Conta ativa na AWS com permissões para criar instâncias EC2 e Security Groups.
-- Chave de acesso SSH (será criada no processo de Launch Instance).
+- Acesse [https://aws.amazon.com/](https://aws.amazon.com/) e faça login na sua conta.
+- No campo de busca, digite **EC2** e clique no serviço.
 
-## Passos da Atividade
+### 2. Criar a Instância
 
-1. Criar a instância EC2
+- Clique em **Launch instances**.
+- Preencha:
+    - **Name:** `flexmedia-api`
+    - **AMI:** Ubuntu Server 22.04 LTS (Free Tier eligible)
+    - **Instance type:** `t2.micro` ou `t3.micro` (Free Tier)
+    - **Key pair:** clique em *Create new key pair*, dê um nome (ex: `minha-chave`), mantenha o formato `.pem` e faça o download. **Guarde este arquivo com segurança — você não poderá baixá-lo novamente.**
 
-- Acesse o Console AWS (https://aws.amazon.com/) e faça login.
-- Vá para EC2 → Instances → Launch instances.
-- Escolha uma AMI: Ubuntu Server 22.04 LTS (ou Amazon Linux 2).
-- Instance type: selecione t2.micro ou t3.micro (Free Tier).
-- Key pair: crie um novo par de chaves e baixe o arquivo `.pem`.
-- Security Group: adicione regras de entrada para as portas:
-	- 22 — SSH — Fonte: seu IP (recomendado) ou 0.0.0.0/0 para testes (menos seguro)
-	- 5000 — TCP — Fonte: 0.0.0.0/0 (para acessar a API Flask)
+### 3. Configurar o Security Group
 
-2. Acessar sua EC2
+Na seção **Network settings**, clique em **Edit** e adicione as seguintes regras de entrada (Inbound rules):
 
-- No Windows: use Git Bash, PowerShell (com OpenSSH) ou WSL para rodar ssh.
-- Conectar (exemplo para Ubuntu):
+| Tipo | Porta | Origem | Uso |
+|------|-------|--------|-----|
+| SSH | 22 | Meu IP | Acesso remoto ao servidor |
+| Custom TCP | 5000 | 0.0.0.0/0 | Acesso à API Flask |
 
-```bash
-ssh -i /caminho/para/sua-chave.pem ubuntu@SEU_IP_PUBLICO
-```
+> ⚠️ Em produção, nunca deixe portas abertas para `0.0.0.0/0`. Para fins de aprendizado, é aceitável.
 
-3. Preparar o ambiente e instalar Python/Flask
+### 4. Lançar a Instância
 
-```bash
-# Atualizar o sistema
-sudo apt update && sudo apt upgrade -y
+- Clique em **Launch instance**.
+- Aguarde o status mudar para **Running**.
+- Anote o **IP Público** da instância (você vai precisar dele).
 
-# Instalar Python e venv
-sudo apt install -y python3 python3-venv python3-pip
+### 5. Conectar via SSH
 
-# Criar e ativar ambiente virtual
-python3 -m venv venv
-source venv/bin/activate
-
-# Instalar Flask
-pip install Flask==3.0.0
-```
-
-4. Criar a aplicação em Python
-
-No diretório do projeto, crie um arquivo `app.py` (ou copie `back/api.py` do repositório). Exemplo mínimo:
-
-```python
-from flask import Flask, jsonify
-
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-		return jsonify(message="Bem-vindo à API FlexMedia!")
-
-@app.route("/health")
-def health():
-		return jsonify(status="ok", service="flexmedia", version="1.0.0")
-
-@app.route("/echo/<texto>")
-def echo(texto):
-		return jsonify(echo=texto)
-
-if __name__ == "__main__":
-		app.run(host="0.0.0.0", port=5000)
-```
-
-5. Executar a aplicação
+No terminal do seu computador:
 
 ```bash
-# Ative o virtualenv (se não estiver ativo)
-source venv/bin/activate
+# Ajustar permissão da chave (necessário apenas na primeira vez)
+chmod 400 /caminho/para/minha-chave.pem
 
-# Rode a aplicação
-python app.py
+# Conectar
+ssh -i /caminho/para/minha-chave.pem ubuntu@SEU_IP_PUBLICO
 ```
 
-Agora a API estará disponível na porta 5000. No seu navegador ou terminal acesse:
+No Windows, use Git Bash, PowerShell (com OpenSSH) ou WSL.
 
-http://SEU_IP_PUBLICO:5000/health
+Se a conexão funcionar, você verá o prompt do Ubuntu. Parabéns, sua EC2 está no ar! 🎉
 
-Você deve ver um JSON com status "ok".
+## Validação
 
-6. Testar e validar
+- [ ] Instância EC2 com status **Running**.
+- [ ] Security Group com portas 22 e 5000 abertas.
+- [ ] Conexão SSH funcionando.
 
-- Teste pelo navegador: acesse a rota `/health`.
-- Teste pelo terminal:
+## Próximo Passo
 
-```bash
-curl http://SEU_IP_PUBLICO:5000/health
-curl http://SEU_IP_PUBLICO:5000/echo/teste
-```
-
-- Tire prints mostrando:
-	- A instância EC2 em execução.
-	- As regras do Security Group (portas 22 e 5000 abertas).
-	- A API funcionando no navegador ou terminal.
-
-7. Entrega
-
-Envie um pequeno relatório com:
-
-- IP público da sua EC2.
-- As três imagens (prints) requisitadas.
-- Uma breve descrição do que foi feito em cada passo.
-
-## Dicas
-
-- Em produção, coloque a aplicação atrás de um servidor WSGI (Gunicorn) e um proxy reverso (Nginx). Para a atividade escolar, o servidor de desenvolvimento do Flask é suficiente.
-- Lembre-se de proteger a chave `.pem` e restringir o Security Group para seu IP quando possível.
-
----
-
-Arquivo de referência local: `back/api.py` (exemplo mínimo incluído no repositório).
+→ [Aula 2 — Criar o banco de dados RDS](criar-rds.md)

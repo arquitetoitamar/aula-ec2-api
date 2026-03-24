@@ -1,66 +1,48 @@
-# Documentação
+# API FlexMedia
 
-https://arquitetoitamar.github.io/aula-ec2-api/
+Documentação completa: [https://arquitetoitamar.github.io/aula-ec2-api/](https://arquitetoitamar.github.io/aula-ec2-api/)
 
-# Guia de Implementação da API
+## Visão Geral
 
-Bem-vindo ao guia de implementação da sua API! Aqui você encontrará informações essenciais para entender, implantar e integrar a solução baseada neste repositório.
+API RESTful em Flask que conecta a um banco PostgreSQL (RDS). Projeto didático para aprender a implantar aplicações Python na nuvem AWS.
 
-# Visão Geral
+## Arquitetura
 
-Este repositório contém um exemplo mínimo de API em Flask localizado em `back/api.py` e material de apoio para aprender a implantar aplicações Python na nuvem.
+- **Front-end** → Site estático (Object Storage / CDN)
+- **API** → Python Flask em instância EC2
+- **Banco de Dados** → PostgreSQL no Amazon RDS
 
-## Sprint 1
+## Conteúdo Programático
 
-Tema: Criando sua primeira API Python na nuvem com AWS EC2
-
-🎯 Objetivo da Sprint
-
-Nesta sprint, você vai criar uma instância EC2 na AWS e subir uma aplicação simples em Python usando o Flask. A ideia é entender como colocar um programa no ar em um servidor na nuvem.
-
-🚀 O que você vai aprender
-
-- O que é uma instância EC2 (máquina virtual na AWS).
-- Como acessar sua EC2 via SSH.
-- Como instalar Python e Flask.
-- Como rodar uma API e acessar pelo navegador ou terminal.
-- Como publicar seu serviço e testar o acesso via internet.
-
-🧩 Passos resumidos
-
-1. Criar a instância EC2 (Ubuntu ou Amazon Linux) — selecionar tipo elegível ao Free Tier (t2.micro/t3.micro) e criar/baixar a chave `.pem`.
-2. Abrir portas no Security Group: 22 (SSH) e 5000 (API Flask).
-3. Conectar via SSH e instalar Python + pip.
-4. Criar um arquivo `app.py` (ou usar `back/api.py`) e instalar Flask (`pip install -r back/requirements.txt`).
-5. Rodar a API: `python back/api.py` (ou `python app.py`) e acessar `http://IP_PUBLICO:5000/health`.
-
-Para o passo a passo completo veja: `docs/implementation-guide/tutorials/criar-ec2.md`
-
-## Exemplo de API (back/api.py)
-
-O arquivo `back/api.py` contém uma API mínima com as seguintes rotas:
-
-- `/` → mensagem de boas-vindas
-- `/health` → retorno JSON com status
-- `/echo/<texto>` → repete o texto enviado na URL
+1. [Criar a instância EC2](docs/implementation-guide/tutorials/criar-ec2.md) — Ubuntu Free Tier na AWS
+2. [Criar o banco RDS](docs/implementation-guide/tutorials/criar-rds.md) — PostgreSQL gerenciado
+3. [Configurar ambiente e subir a API](docs/implementation-guide/tutorials/configurar-ambiente.md) — Python, Flask, API inicial
+4. [Integrar API com banco](docs/implementation-guide/tutorials/integrar-api-banco.md) — Conexão com PostgreSQL e rotas CRUD
 
 ## Como rodar localmente
 
-1. Crie um virtualenv: `python -m venv venv` e ative-o.
-2. Instale as dependências: `pip install -r back/requirements.txt`.
-3. Rode a API: `python back/api.py`.
-4. Teste com curl: `curl http://127.0.0.1:5000/health`.
+```bash
+cd back
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python api.py
+```
 
----
+Teste:
 
-Leia `docs/implementation-guide/tutorials/criar-ec2.md` para a versão completa do tutorial com comandos e capturas de tela sugeridas.
-# Documentação
+```bash
+curl http://127.0.0.1:5000/health
+```
 
-https://arquitetoitamar.github.io/aula-2-api/
-# Guia de Implementação da API  
-Bem-vindo ao guia de implementação da sua API! Aqui você encontrará informações essenciais para entender, implantar e integrar a solução baseada neste repositório.
-# Visão Geral
-Este projeto fornece uma API RESTful desenvolvida em Flask, que interage com um banco de dados PostgreSQL. A API é projetada para ser simples, escalável e fácil de integrar com outras aplicações.
-## Componentes Principais
-- **Flask**: Um micro framework web em Python, utilizado para construir a API.
-- **PostgreSQL**: Um sistema de gerenciamento de banco de dados relacional, utilizado para armazenar os dados da aplicação.
+## API — Rotas
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | `/` | Mensagem de boas-vindas |
+| GET | `/health` | Health check |
+| GET | `/items` | Listar itens |
+| POST | `/items` | Criar item |
+| GET | `/items/<id>` | Buscar item por ID |
+| PUT | `/items/<id>` | Atualizar item |
+| DELETE | `/items/<id>` | Remover item |

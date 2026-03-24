@@ -1,20 +1,26 @@
-site_name: Plataforma Cognitiva
+site_name: API FlexMedia — Guia de Implementação
 
-# Tema Material para MkDocs
-# https://squidfunk.github.io/mkdocs-material/
 theme:
   name: material
-  language: en
+  language: pt-BR
   features:
     - navigation.expand
 
 nav:
-  - Guia de implementação:
-    - Overview: index.md
-    - Tutorials:
-      - "Criando sua primeira API (EC2 + Flask)": implementation-guide/tutorials/criar-ec2.md
-  - "Plataformas e Níveis de Maturidade":
-      - "Visão Geral": platforms-services/README.md
-      - "Nivel 1 - Hardware e Infraestrutura": platforms-services/nivel_1.md
-      - "Nivel 2 - Modelos e Serviços de ML": platforms-services/nivel_2.md
-      - "Nivel 3 - Aplicacoes e Serviços de IA": platforms-services/nivel_3.md
+  - Início: index.md
+  - Guia de Implementação:
+    - Arquitetura: implementation-guide/architecture.md
+    - Conteúdo Programático:
+      - "Aula 1 — Criar a instância EC2": implementation-guide/tutorials/criar-ec2.md
+      - "Aula 2 — Criar o banco RDS": implementation-guide/tutorials/criar-rds.md
+      - "Aula 3 — Configurar ambiente e subir a API": implementation-guide/tutorials/configurar-ambiente.md
+      - "Aula 4 — Integrar API com banco": implementation-guide/tutorials/integrar-api-banco.md
+    - Custos: implementation-guide/cost.md
+    - Deploy: implementation-guide/deployment.md
+    - Considerações: implementation-guide/considerations.md
+    - Revisões: implementation-guide/revisions.md
+  - Plataformas e Níveis de Maturidade:
+    - Visão Geral: platforms-services/README.md
+    - "Nível 1 — Hardware e Infraestrutura": platforms-services/nivel_1.md
+    - "Nível 2 — Modelos e Serviços de ML": platforms-services/nivel_2.md
+    - "Nível 3 — Aplicações e Serviços de IA": platforms-services/nivel_3.md

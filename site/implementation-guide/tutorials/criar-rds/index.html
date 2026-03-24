@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../tutorials/integrar-api-banco/">
+        <link rel="prev" href="../criar-ec2/">
       
       
-        <link rel="next" href="../deployment/">
+        <link rel="next" href="../configurar-ambiente/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Custos - API FlexMedia — Guia de Implementação</title>
+        <title>Aula 2 — Criar o banco RDS - API FlexMedia — Guia de Implementação</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#custos" class="md-skip">
+        <a href="#aula-2-criar-o-banco-de-dados-rds-postgresql" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="API FlexMedia — Guia de Implementação" class="md-header__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
+    <a href="../../.." title="API FlexMedia — Guia de Implementação" class="md-header__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Custos
+              Aula 2 — Criar o banco RDS
             
           </span>
         </div>
@@ -178,7 +178,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="API FlexMedia — Guia de Implementação" class="md-nav__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
+    <a href="../../.." title="API FlexMedia — Guia de Implementação" class="md-nav__button md-logo" aria-label="API FlexMedia — Guia de Implementação" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -196,7 +196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -272,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   
@@ -297,20 +297,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -331,7 +331,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -349,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/criar-ec2/" class="md-nav__link">
+      <a href="../criar-ec2/" class="md-nav__link">
         
   
   
@@ -374,10 +374,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tutorials/criar-rds/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aula 2 — Criar o banco RDS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -393,6 +420,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-o-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é o RDS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-a-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-acessar-o-rds-no-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Acessar o RDS no Console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configurar-o-banco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configurar o Banco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configurar-o-security-group-do-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configurar o Security Group do RDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-criar-o-banco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Criar o Banco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-testar-a-conexao-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Testar a Conexão (opcional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Próximo Passo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -405,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/configurar-ambiente/" class="md-nav__link">
+      <a href="../configurar-ambiente/" class="md-nav__link">
         
   
   
@@ -433,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/integrar-api-banco/" class="md-nav__link">
+      <a href="../integrar-api-banco/" class="md-nav__link">
         
   
   
@@ -466,19 +618,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../cost/" class="md-nav__link">
         
   
   
@@ -494,7 +637,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -507,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/" class="md-nav__link">
+      <a href="../../deployment/" class="md-nav__link">
         
   
   
@@ -535,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../considerations/" class="md-nav__link">
+      <a href="../../considerations/" class="md-nav__link">
         
   
   
@@ -563,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../revisions/" class="md-nav__link">
+      <a href="../../revisions/" class="md-nav__link">
         
   
   
@@ -647,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms-services/" class="md-nav__link">
+      <a href="../../../platforms-services/" class="md-nav__link">
         
   
   
@@ -675,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms-services/nivel_1/" class="md-nav__link">
+      <a href="../../../platforms-services/nivel_1/" class="md-nav__link">
         
   
   
@@ -703,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms-services/nivel_2/" class="md-nav__link">
+      <a href="../../../platforms-services/nivel_2/" class="md-nav__link">
         
   
   
@@ -731,7 +873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platforms-services/nivel_3/" class="md-nav__link">
+      <a href="../../../platforms-services/nivel_3/" class="md-nav__link">
         
   
   
@@ -779,6 +921,119 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-o-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é o RDS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-a-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-acessar-o-rds-no-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Acessar o RDS no Console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configurar-o-banco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configurar o Banco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configurar-o-security-group-do-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configurar o Security Group do RDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-criar-o-banco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Criar o Banco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-testar-a-conexao-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Testar a Conexão (opcional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximo-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Próximo Passo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -794,33 +1049,113 @@
 
 
 
-<h1 id="custos">Custos</h1>
-<p>Todos os recursos utilizados neste projeto são elegíveis ao <strong>AWS Free Tier</strong> (12 meses após a criação da conta):</p>
+<h1 id="aula-2-criar-o-banco-de-dados-rds-postgresql">Aula 2 — Criar o Banco de Dados RDS (PostgreSQL)</h1>
+<p>🎯 <strong>Objetivo:</strong> Criar um banco de dados PostgreSQL gerenciado na AWS usando o Amazon RDS.</p>
+<h2 id="o-que-e-o-rds">O que é o RDS?</h2>
+<p>O Amazon RDS (Relational Database Service) é um serviço que cria e gerencia bancos de dados na nuvem. Ele cuida de backups, atualizações e manutenção para você.</p>
+<h2 id="passo-a-passo">Passo a Passo</h2>
+<h3 id="1-acessar-o-rds-no-console">1. Acessar o RDS no Console</h3>
+<ul>
+<li>No Console AWS, busque por <strong>RDS</strong> e clique no serviço.</li>
+<li>Clique em <strong>Create database</strong>.</li>
+</ul>
+<h3 id="2-configurar-o-banco">2. Configurar o Banco</h3>
+<p>Preencha as opções:</p>
 <table>
 <thead>
 <tr>
-<th>Recurso</th>
-<th>Tipo</th>
-<th>Free Tier</th>
+<th>Campo</th>
+<th>Valor</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>EC2</td>
-<td>t2.micro / t3.micro</td>
-<td>750 horas/mês</td>
+<td>Creation method</td>
+<td>Standard create</td>
 </tr>
 <tr>
-<td>RDS PostgreSQL</td>
-<td>db.t3.micro</td>
-<td>750 horas/mês + 20 GB de armazenamento</td>
+<td>Engine</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td>Engine version</td>
+<td>(manter a padrão)</td>
+</tr>
+<tr>
+<td>Templates</td>
+<td><strong>Free tier</strong></td>
+</tr>
+<tr>
+<td>DB instance identifier</td>
+<td><code>flexmedia-db</code></td>
+</tr>
+<tr>
+<td>Master username</td>
+<td><code>postgres</code></td>
+</tr>
+<tr>
+<td>Master password</td>
+<td>(escolha uma senha e anote)</td>
+</tr>
+<tr>
+<td>DB instance class</td>
+<td><code>db.t3.micro</code></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>20 GB (padrão)</td>
+</tr>
+<tr>
+<td>Public access</td>
+<td><strong>Yes</strong> (para fins de aprendizado)</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>⚠️ Lembre-se de <strong>parar ou encerrar</strong> os recursos quando não estiver usando para evitar cobranças inesperadas.</p>
+<p>⚠️ Em produção, o banco <strong>nunca</strong> deve ter acesso público. Para aprendizado, habilitamos para facilitar os testes.</p>
 </blockquote>
-<p>Para estimativas detalhadas, use a <a href="https://calculator.aws/">Calculadora de Preços da AWS</a>.</p>
+<h3 id="3-configurar-o-security-group-do-rds">3. Configurar o Security Group do RDS</h3>
+<p>Na seção de conectividade, crie ou edite o Security Group do RDS para permitir conexões na porta 5432:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Porta</th>
+<th>Origem</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL</td>
+<td>5432</td>
+<td>Security Group da EC2</td>
+<td>Permitir que a API acesse o banco</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 A forma mais segura é permitir acesso apenas a partir do Security Group da EC2, em vez de abrir para qualquer IP.</p>
+</blockquote>
+<h3 id="4-criar-o-banco">4. Criar o Banco</h3>
+<ul>
+<li>Clique em <strong>Create database</strong>.</li>
+<li>Aguarde alguns minutos até o status mudar para <strong>Available</strong>.</li>
+<li>Anote o <strong>Endpoint</strong> do banco (algo como <code>flexmedia-db.xxxx.us-east-1.rds.amazonaws.com</code>).</li>
+</ul>
+<h3 id="5-testar-a-conexao-opcional">5. Testar a Conexão (opcional)</h3>
+<p>Se tiver o <code>psql</code> instalado localmente ou na EC2:</p>
+<pre><code class="language-bash">psql -h SEU_ENDPOINT_RDS -U postgres -d postgres
+</code></pre>
+<p>Digite a senha quando solicitado. Se conectar, o banco está pronto!</p>
+<h2 id="validacao">Validação</h2>
+<ul>
+<li>[ ] Instância RDS com status <strong>Available</strong>.</li>
+<li>[ ] Endpoint do banco anotado.</li>
+<li>[ ] Security Group permite conexão na porta 5432 a partir da EC2.</li>
+</ul>
+<h2 id="proximo-passo">Próximo Passo</h2>
+<p>→ <a href="../configurar-ambiente/">Aula 3 — Configurar ambiente Python e subir a API</a></p>
 
 
 
@@ -870,10 +1205,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
