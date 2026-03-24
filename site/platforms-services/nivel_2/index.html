@@ -702,6 +702,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nível 2 — Modelos e Serviços de ML
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -718,6 +736,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-tipicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes típicos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura de exemplo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vantagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vantagens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desafios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -779,6 +871,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-tipicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes típicos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura de exemplo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vantagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vantagens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desafios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -795,13 +950,53 @@
 
 
 <h1 id="nivel-2-modelos-e-servicos-de-ml-gerenciados">Nível 2: Modelos e Serviços de ML Gerenciados</h1>
-<p>Neste nível, a empresa utiliza serviços como Amazon SageMaker para treinar, hospedar e operacionalizar modelos de machine learning, reduzindo a complexidade de infraestrutura.</p>
-<ul>
-<li><strong>Exemplo:</strong> Treinamento e deploy de modelos no SageMaker, pipelines de ML gerenciados.</li>
-<li><strong>Diagrama:</strong></li>
-</ul>
+<p>Neste nível, a empresa adota serviços gerenciados de machine learning. Em vez de configurar toda a infraestrutura para treinar e servir modelos, utiliza plataformas que abstraem essa complexidade.</p>
+<h2 id="componentes-tipicos">Componentes típicos</h2>
+<table>
+<thead>
+<tr>
+<th>Serviço</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon SageMaker</td>
+<td>Treinamento, avaliação e deploy de modelos</td>
+</tr>
+<tr>
+<td>Aurora Serverless (pgvector)</td>
+<td>Banco vetorial gerenciado e escalável</td>
+</tr>
+<tr>
+<td>Step Functions</td>
+<td>Orquestração de pipelines de dados e embeddings</td>
+</tr>
+<tr>
+<td>Glue / Athena</td>
+<td>ETL e consulta em data lakes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arquitetura-de-exemplo">Arquitetura de exemplo</h2>
 <p><img alt="Diagrama Nível 2" src="../leve_2.png" /></p>
-<p>Permite maior foco em experimentação e resultados, com menos preocupação operacional.</p>
+<p>A API agora se conecta ao SageMaker para inferência de modelos, enquanto pipelines automatizados processam dados, geram embeddings e alimentam o banco vetorial.</p>
+<h2 id="vantagens">Vantagens</h2>
+<ul>
+<li>Menos preocupação com infraestrutura de ML (o serviço gerencia servidores, GPUs, escala).</li>
+<li>Ferramentas integradas para experimentação, treinamento e deploy de modelos.</li>
+<li>Escalabilidade facilitada — o serviço cresce conforme a demanda.</li>
+</ul>
+<h2 id="desafios">Desafios</h2>
+<ul>
+<li>Menos controle sobre detalhes de baixo nível.</li>
+<li>Custo pode ser maior dependendo do volume de treinamento e inferência.</li>
+<li>Curva de aprendizado dos serviços gerenciados.</li>
+</ul>
+<h2 id="quando-usar">Quando usar</h2>
+<p>Quando o time já tem dados e precisa treinar modelos próprios, mas não quer gerenciar a infraestrutura de ML manualmente.</p>
+<hr />
+<p>← Anterior: <a href="../nivel_1/">Nível 1 — Hardware e Infraestrutura</a> | → Próximo: <a href="../nivel_3/">Nível 3 — Aplicações e Serviços de IA</a></p>
 
 
 

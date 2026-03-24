@@ -1,62 +1,44 @@
-# Níveis de Maturidade de Plataformas de IA na Nuvem
+# Evolução de Plataformas de IA na Nuvem
 
-A evolução de uma plataforma de IA na nuvem pode ser dividida em três níveis principais de maturidade. Cada nível representa um avanço em automação, facilidade de uso, integração e potencial de inovação.
+A adoção de Inteligência Artificial na nuvem não acontece de uma vez. Ela segue uma jornada de maturidade que pode ser dividida em três níveis, onde cada etapa traz mais automação, menos complexidade operacional e maior foco no negócio.
 
-## Nível 1: Hardware e Infraestrutura
+## Visão Geral da Evolução
 
-Neste estágio, a empresa utiliza recursos básicos de nuvem para construir sua própria stack de IA. Exemplos:
-- Instâncias EC2 (com ou sem GPU)
-- Armazenamento S3
-- Banco de dados RDS (Postgres/pgvector)
- - Instâncias EC2 (com ou sem GPU)
- - Armazenamento de objetos (Object Storage)
- - Banco de dados RDS (Postgres/pgvector)
+```
+┌─────────────────────────────┐
+│  Nível 3: Aplicações de IA  │  ← Foco no negócio
+│  Bedrock, Agentes, RAG,     │
+│  Serverless                  │
+├─────────────────────────────┤
+│  Nível 2: Serviços de ML    │  ← Foco em modelos
+│  SageMaker, Pipelines,      │
+│  Treinamento gerenciado      │
+├─────────────────────────────┤
+│  Nível 1: Infraestrutura    │  ← Foco em infra (estamos aqui!)
+│  EC2, Object Storage,       │
+│  RDS, GPUs                   │
+└─────────────────────────────┘
+```
 
-**Vantagens:**
-- Total controle sobre a infraestrutura
-- Flexibilidade máxima
+Cada nível se apoia no anterior. Não é necessário abandonar um nível para avançar ao próximo — eles coexistem.
 
-**Desafios:**
-- Maior responsabilidade operacional
-- Menor automação
-- Escalabilidade e segurança dependem do time
+## Comparativo
 
-Veja o diagrama: [leve_1.puml](leve_1.puml)
+| Aspecto | Nível 1 | Nível 2 | Nível 3 |
+|---------|---------|---------|---------|
+| Foco | Infraestrutura | Modelos de ML | Aplicações inteligentes |
+| Controle | Total | Parcial | Mínimo |
+| Complexidade operacional | Alta | Média | Baixa |
+| Time-to-market | Lento | Moderado | Rápido |
+| Customização | Máxima | Alta | Limitada |
+| Exemplos de serviços | EC2, RDS, S3 | SageMaker, Glue | Bedrock, AI Services |
 
----
+## Onde estamos neste curso?
 
-## Nível 2: Modelos e Serviços de ML Gerenciados
+Neste curso, trabalhamos no **Nível 1**: criamos uma instância EC2, configuramos um banco PostgreSQL no RDS e subimos uma API Flask. Essa é a base sobre a qual os níveis mais avançados são construídos.
 
-Neste estágio, a empresa adota serviços gerenciados de machine learning, como o Amazon SageMaker, para treinar, hospedar e operacionalizar modelos.
+## Detalhamento por Nível
 
-**Vantagens:**
-- Menos preocupação com infraestrutura
-- Ferramentas integradas para ML
-- Escalabilidade facilitada
-
-**Desafios:**
-- Menos controle sobre detalhes de baixo nível
-- Custo pode ser maior
-
-Veja o diagrama: [leve_2.puml](leve_2.puml)
-
----
-
-## Nível 3: Aplicações e Serviços de IA
-
-O estágio mais avançado, onde a empresa utiliza serviços de IA prontos (como Amazon Bedrock, AWS AI Services, modelos fundamentais, agentes, etc.) e foca em construir aplicações inteligentes, serverless e altamente integradas.
-
-**Vantagens:**
-- Time-to-market muito rápido
-- Baixa complexidade operacional
-- Foco total no negócio
-
-**Desafios:**
-- Menor customização
-- Dependência de provedores
-
-Veja o diagrama: [leve_3.puml](leve_3.puml)
-
----
-
-> A jornada de maturidade começa com a base de infraestrutura (nível 1), evolui para serviços gerenciados de ML (nível 2) e culmina em aplicações inteligentes e serverless (nível 3). Cada etapa traz ganhos de produtividade, automação e inovação.
+- [Nível 1 — Hardware e Infraestrutura](nivel_1.md)
+- [Nível 2 — Modelos e Serviços de ML](nivel_2.md)
+- [Nível 3 — Aplicações e Serviços de IA](nivel_3.md)

@@ -728,6 +728,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nível 3 — Aplicações e Serviços de IA
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -744,6 +762,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-tipicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes típicos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura de exemplo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vantagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vantagens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desafios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -777,6 +869,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-tipicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes típicos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura de exemplo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vantagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vantagens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desafios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -793,13 +948,57 @@
 
 
 <h1 id="nivel-3-aplicacoes-e-servicos-de-ia">Nível 3: Aplicações e Serviços de IA</h1>
-<p>O estágio mais avançado, onde a empresa utiliza serviços de IA prontos (Amazon Bedrock, AWS AI Services, modelos fundamentais, agentes, etc.) e foca em construir aplicações inteligentes, serverless e altamente integradas.</p>
-<ul>
-<li><strong>Exemplo:</strong> Aplicações que consomem modelos via API, agentes, RAG, ferramentas serverless.</li>
-<li><strong>Diagrama:</strong></li>
-</ul>
+<p>O estágio mais avançado de maturidade. A empresa consome serviços de IA prontos e foca em construir aplicações inteligentes, sem se preocupar com treinamento de modelos ou infraestrutura.</p>
+<h2 id="componentes-tipicos">Componentes típicos</h2>
+<table>
+<thead>
+<tr>
+<th>Serviço</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon Bedrock</td>
+<td>Acesso a modelos fundamentais (Claude, Titan, etc.), agentes e guardrails</td>
+</tr>
+<tr>
+<td>Knowledge Bases</td>
+<td>RAG gerenciado com indexação automática de documentos</td>
+</tr>
+<tr>
+<td>Lambda</td>
+<td>Orquestração serverless das chamadas de IA</td>
+</tr>
+<tr>
+<td>CloudFront + API Gateway</td>
+<td>Distribuição e entrada das requisições</td>
+</tr>
+<tr>
+<td>CloudWatch / X-Ray</td>
+<td>Observabilidade (logs, métricas, traces)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arquitetura-de-exemplo">Arquitetura de exemplo</h2>
 <p><img alt="Diagrama Nível 3" src="../leve_3.png" /></p>
-<p>Permite máxima agilidade e inovação, com baixa complexidade operacional.</p>
+<p>O usuário faz uma requisição que passa pelo API Gateway, aciona uma Lambda que orquestra chamadas ao Bedrock. O Bedrock pode consultar uma Knowledge Base (RAG) ou acionar ferramentas externas (SQL, HTTP, execução de código) via agentes.</p>
+<h2 id="vantagens">Vantagens</h2>
+<ul>
+<li>Time-to-market muito rápido — não precisa treinar modelos.</li>
+<li>Complexidade operacional mínima — tudo é serverless e gerenciado.</li>
+<li>Foco total no produto e na experiência do usuário.</li>
+</ul>
+<h2 id="desafios">Desafios</h2>
+<ul>
+<li>Menor customização dos modelos (usa modelos pré-treinados).</li>
+<li>Dependência do provedor de nuvem.</li>
+<li>Custos por requisição podem crescer com o volume.</li>
+</ul>
+<h2 id="quando-usar">Quando usar</h2>
+<p>Quando o objetivo é entregar valor rápido com IA, sem necessidade de treinar modelos próprios. Ideal para chatbots, assistentes, busca semântica, geração de conteúdo e automação inteligente.</p>
+<hr />
+<p>← Anterior: <a href="../nivel_2/">Nível 2 — Modelos e Serviços de ML</a></p>
 
 
 

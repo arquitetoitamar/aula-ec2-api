@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#niveis-de-maturidade-de-plataformas-de-ia-na-nuvem" class="md-skip">
+        <a href="#evolucao-de-plataformas-de-ia-na-nuvem" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -697,10 +697,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nivel-1-hardware-e-infraestrutura" class="md-nav__link">
+  <a href="#visao-geral-da-evolucao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nível 1: Hardware e Infraestrutura
+        Visão Geral da Evolução
       
     </span>
   </a>
@@ -708,10 +708,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nivel-2-modelos-e-servicos-de-ml-gerenciados" class="md-nav__link">
+  <a href="#comparativo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nível 2: Modelos e Serviços de ML Gerenciados
+        Comparativo
       
     </span>
   </a>
@@ -719,10 +719,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nivel-3-aplicacoes-e-servicos-de-ia" class="md-nav__link">
+  <a href="#onde-estamos-neste-curso" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nível 3: Aplicações e Serviços de IA
+        Onde estamos neste curso?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalhamento-por-nivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detalhamento por Nível
       
     </span>
   </a>
@@ -856,10 +867,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nivel-1-hardware-e-infraestrutura" class="md-nav__link">
+  <a href="#visao-geral-da-evolucao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nível 1: Hardware e Infraestrutura
+        Visão Geral da Evolução
       
     </span>
   </a>
@@ -867,10 +878,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nivel-2-modelos-e-servicos-de-ml-gerenciados" class="md-nav__link">
+  <a href="#comparativo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nível 2: Modelos e Serviços de ML Gerenciados
+        Comparativo
       
     </span>
   </a>
@@ -878,10 +889,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nivel-3-aplicacoes-e-servicos-de-ia" class="md-nav__link">
+  <a href="#onde-estamos-neste-curso" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nível 3: Aplicações e Serviços de IA
+        Onde estamos neste curso?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalhamento-por-nivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detalhamento por Nível
       
     </span>
   </a>
@@ -905,50 +927,81 @@
 
 
 
-<h1 id="niveis-de-maturidade-de-plataformas-de-ia-na-nuvem">Níveis de Maturidade de Plataformas de IA na Nuvem</h1>
-<p>A evolução de uma plataforma de IA na nuvem pode ser dividida em três níveis principais de maturidade. Cada nível representa um avanço em automação, facilidade de uso, integração e potencial de inovação.</p>
-<h2 id="nivel-1-hardware-e-infraestrutura">Nível 1: Hardware e Infraestrutura</h2>
-<p>Neste estágio, a empresa utiliza recursos básicos de nuvem para construir sua própria stack de IA. Exemplos:
-- Instâncias EC2 (com ou sem GPU)
-- Armazenamento S3
-- Banco de dados RDS (Postgres/pgvector)
- - Instâncias EC2 (com ou sem GPU)
- - Armazenamento de objetos (Object Storage)
- - Banco de dados RDS (Postgres/pgvector)</p>
-<p><strong>Vantagens:</strong>
-- Total controle sobre a infraestrutura
-- Flexibilidade máxima</p>
-<p><strong>Desafios:</strong>
-- Maior responsabilidade operacional
-- Menor automação
-- Escalabilidade e segurança dependem do time</p>
-<p>Veja o diagrama: <a href="leve_1.puml">leve_1.puml</a></p>
-<hr />
-<h2 id="nivel-2-modelos-e-servicos-de-ml-gerenciados">Nível 2: Modelos e Serviços de ML Gerenciados</h2>
-<p>Neste estágio, a empresa adota serviços gerenciados de machine learning, como o Amazon SageMaker, para treinar, hospedar e operacionalizar modelos.</p>
-<p><strong>Vantagens:</strong>
-- Menos preocupação com infraestrutura
-- Ferramentas integradas para ML
-- Escalabilidade facilitada</p>
-<p><strong>Desafios:</strong>
-- Menos controle sobre detalhes de baixo nível
-- Custo pode ser maior</p>
-<p>Veja o diagrama: <a href="leve_2.puml">leve_2.puml</a></p>
-<hr />
-<h2 id="nivel-3-aplicacoes-e-servicos-de-ia">Nível 3: Aplicações e Serviços de IA</h2>
-<p>O estágio mais avançado, onde a empresa utiliza serviços de IA prontos (como Amazon Bedrock, AWS AI Services, modelos fundamentais, agentes, etc.) e foca em construir aplicações inteligentes, serverless e altamente integradas.</p>
-<p><strong>Vantagens:</strong>
-- Time-to-market muito rápido
-- Baixa complexidade operacional
-- Foco total no negócio</p>
-<p><strong>Desafios:</strong>
-- Menor customização
-- Dependência de provedores</p>
-<p>Veja o diagrama: <a href="leve_3.puml">leve_3.puml</a></p>
-<hr />
-<blockquote>
-<p>A jornada de maturidade começa com a base de infraestrutura (nível 1), evolui para serviços gerenciados de ML (nível 2) e culmina em aplicações inteligentes e serverless (nível 3). Cada etapa traz ganhos de produtividade, automação e inovação.</p>
-</blockquote>
+<h1 id="evolucao-de-plataformas-de-ia-na-nuvem">Evolução de Plataformas de IA na Nuvem</h1>
+<p>A adoção de Inteligência Artificial na nuvem não acontece de uma vez. Ela segue uma jornada de maturidade que pode ser dividida em três níveis, onde cada etapa traz mais automação, menos complexidade operacional e maior foco no negócio.</p>
+<h2 id="visao-geral-da-evolucao">Visão Geral da Evolução</h2>
+<pre><code>┌─────────────────────────────┐
+│  Nível 3: Aplicações de IA  │  ← Foco no negócio
+│  Bedrock, Agentes, RAG,     │
+│  Serverless                  │
+├─────────────────────────────┤
+│  Nível 2: Serviços de ML    │  ← Foco em modelos
+│  SageMaker, Pipelines,      │
+│  Treinamento gerenciado      │
+├─────────────────────────────┤
+│  Nível 1: Infraestrutura    │  ← Foco em infra (estamos aqui!)
+│  EC2, Object Storage,       │
+│  RDS, GPUs                   │
+└─────────────────────────────┘
+</code></pre>
+<p>Cada nível se apoia no anterior. Não é necessário abandonar um nível para avançar ao próximo — eles coexistem.</p>
+<h2 id="comparativo">Comparativo</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Nível 1</th>
+<th>Nível 2</th>
+<th>Nível 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foco</td>
+<td>Infraestrutura</td>
+<td>Modelos de ML</td>
+<td>Aplicações inteligentes</td>
+</tr>
+<tr>
+<td>Controle</td>
+<td>Total</td>
+<td>Parcial</td>
+<td>Mínimo</td>
+</tr>
+<tr>
+<td>Complexidade operacional</td>
+<td>Alta</td>
+<td>Média</td>
+<td>Baixa</td>
+</tr>
+<tr>
+<td>Time-to-market</td>
+<td>Lento</td>
+<td>Moderado</td>
+<td>Rápido</td>
+</tr>
+<tr>
+<td>Customização</td>
+<td>Máxima</td>
+<td>Alta</td>
+<td>Limitada</td>
+</tr>
+<tr>
+<td>Exemplos de serviços</td>
+<td>EC2, RDS, S3</td>
+<td>SageMaker, Glue</td>
+<td>Bedrock, AI Services</td>
+</tr>
+</tbody>
+</table>
+<h2 id="onde-estamos-neste-curso">Onde estamos neste curso?</h2>
+<p>Neste curso, trabalhamos no <strong>Nível 1</strong>: criamos uma instância EC2, configuramos um banco PostgreSQL no RDS e subimos uma API Flask. Essa é a base sobre a qual os níveis mais avançados são construídos.</p>
+<h2 id="detalhamento-por-nivel">Detalhamento por Nível</h2>
+<ul>
+<li><a href="nivel_1/">Nível 1 — Hardware e Infraestrutura</a></li>
+<li><a href="nivel_2/">Nível 2 — Modelos e Serviços de ML</a></li>
+<li><a href="nivel_3/">Nível 3 — Aplicações e Serviços de IA</a></li>
+</ul>
 
 
 
