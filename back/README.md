@@ -5,10 +5,11 @@ API Flask com conexão ao PostgreSQL (RDS).
 ## Rodar localmente
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python api.py
+sudo apt install python3.12-venv #instalar lib
+python3 -m venv venv # criar ambiente virutal
+source venv/bin/activate # ativa o ambiente
+pip install -r requirements.txt # instala as dependencias
+python api.py # executa a api
 ```
 
 ## Rodar na EC2
