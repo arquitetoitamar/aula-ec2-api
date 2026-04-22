@@ -1,4 +1,4 @@
-# Back-end — API FlexMedia
+# Back-end — API
 
 API Flask com conexão ao PostgreSQL (RDS).
 
