@@ -14,11 +14,11 @@ DB_CONFIG = {
 
 @app.route("/")
 def home():
-    return jsonify(message="Bem-vindo à API FlexMedia!")
+    return jsonify(message="Bem-vindo à API!")
 
 @app.route("/health")
 def health():
-    return jsonify(status="ok", service="flexmedia", version="1.0.0")
+    return jsonify(status="ok", service="AULA CLOUD AWS", version="1.0.0")
 
 @app.route("/echo/<texto>")
 def echo(texto):

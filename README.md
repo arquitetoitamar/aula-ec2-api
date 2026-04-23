@@ -1,4 +1,4 @@
-# API FlexMedia
+# API Python na nuvem AWS EC2
 
 Documentação completa: [https://arquitetoitamar.github.io/aula-ec2-api/](https://arquitetoitamar.github.io/aula-ec2-api/)
 
@@ -37,12 +37,8 @@ curl http://127.0.0.1:5000/health
 
 ## API — Rotas
 
-| Método | Rota | Descrição |
-|--------|------|-----------|
-| GET | `/` | Mensagem de boas-vindas |
-| GET | `/health` | Health check |
-| GET | `/items` | Listar itens |
-| POST | `/items` | Criar item |
-| GET | `/items/<id>` | Buscar item por ID |
-| PUT | `/items/<id>` | Atualizar item |
-| DELETE | `/items/<id>` | Remover item |
+| Método | Rota        | Descrição             |
+| ------- | ----------- | ----------------------- |
+| GET     | `/`       | Mensagem de boas-vindas |
+| GET     | `/health` | Health check            |
+|         |             |                         |
